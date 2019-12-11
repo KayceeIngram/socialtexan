@@ -10,7 +10,7 @@ const express = require('express')
     , massive = require('massive');
 
 const app = express();
-const PORT = process.env.PORT || 3003;
+const SERVER_PORT = process.env.SERVER_PORT || 3003;
 const CONNECTION_STRING = process.env.CONNECTION_STRING;
 
 app.use(bodyParser.json());
@@ -88,7 +88,7 @@ massive(CONNECTION_STRING)
 .then(db => {
   app.set('db', db);
 
-  app.listen(PORT, () => {
-    console.log('Listening on port ', PORT);
+  app.listen(SERVER_PORT, () => {
+    console.log('Listening on port ', SERVER_PORT);
   });
 });
